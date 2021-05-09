@@ -1,3 +1,6 @@
+# 上传的代码为本人项目所需，更改的一些python接口，predict分为单张测试和多张测试
+# 内部封装了测试接口，供项目调用
+
 # Yolo v4, v3 and v2 for Windows and Linux
 
 ## (neural networks for object detection)
