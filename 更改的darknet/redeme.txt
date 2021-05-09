@@ -1,0 +1,38 @@
+1.切换到darknet-master文件目录下，输入make,进行编译。
+
+2 
+
+
+
+
+
+1训练自己的数据
+./darknet detector train cfg/obj.data cfg/yolo-obj.cfg yolov4.conv.137
+
+
+./darknet detector train cfg/target.data cfg/yolov4-target.cfg yolov4.conv.137
+
+./darknet detector train radarData_xc/target.data radarData_xc/yolov4-target.cfg yolov4.conv.137
+
+
+./darknet detector train targetdata/target.data targetdata/yolov4-target.cfg backup/yolov4-target_1000.weights
+
+./darknet detector train targetdata/target.data targetdata/yolov4-target.cfg yolov4.conv.137
+
+
+2、计算mAp
+./darknet detector map targetdata/target.data targetdata/yolov4-target.cfg backup/yolov4-target_12000.weights
+./darknet detector map radarData_xc/target.data radarData_xc/yolov4-target.cfg backup/yolov4_xc_416_color/yolov4-target_3000.weights
+
+3、测试
+./darknet detector test data/target.data targetdata/yolov4-target.cfg backup/yolov4-target_13000.weights -dont_show -ext_output data/testsingle_scat.txt result.txt
+
+./darknet detector valid data/target.data targetdata/yolov4-target.cfg backup/yolov4-target_13000.weights -dont_show -ext_output data/testsingle_scat.txt result.txt
+
+
+./darknet detector map data/target.data targetdata/yolov4-target.cfg backup/yolov4-target_13000.weights -dont_show data/testsingle_scat.txt 
+
+  
+
+
+
